@@ -1,4 +1,4 @@
-# Unit PYG02: Pygame Wall Ball Game --version 1
+# Unit PYG02: Pygame Wall Ball Game --version 2
 import pygame, sys
 
 # Global Function & Vairable
