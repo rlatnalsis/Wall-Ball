@@ -10,6 +10,8 @@ ball = pygame.image.load("Pygame\PYG02_ball.gif")
 speed = [1, 1] # tuple[horizontal axis ratio, vertical axis ratio]
 BLACK = 0, 0, 0
 ballrect = ball.get_rect()
+fps = 300 # frames per second
+fclock = pygame.time.Clock()
 
 # Event
 while True: # ball moves one step per cycle, so control cycle interval to control speed
@@ -27,3 +29,4 @@ while True: # ball moves one step per cycle, so control cycle interval to contro
     screen.fill(BLACK)
     screen.blit(ball, ballrect)
     pygame.display.update()
+    fclock.tick(fps)
