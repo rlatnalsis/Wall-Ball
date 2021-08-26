@@ -21,6 +21,7 @@ provides function and variable used to manipulate different parts of the Python 
 | `pygame.time.Clock()`            | create an object to help track time                                                                                                                                                                                                                                                                                              | [pygame module for monitoring time](https://www.pygame.org/docs/ref/time.html#pygame.time.Clock)                                  |
 | `pygame.event.get()`             | get events from the queue<br/>⁝ the event is deleted after execution                                                                                                                                                                                                                                                             | [pygame module for interacting with events and queues](https://www.pygame.org/docs/ref/event.html#pygame.event.get)               |
 | event`.type`                     | event type identifier                                                                                                                                                                                                                                                                                                            | [pygame module for interacting with event handlers](https://www.pygame.org/docs/ref/event.html#pygame.event.EventType)            |
+| event`.key`                      | contain functions for dealing with the keyboard                                                                                                                                                                                                                                                                                  | [pygame module to work with the keyboard](https://www.pygame.org/docs/ref/key.html#pygame.key.start_text_input)                   |
 | `sys.exit()`                     | exit the program itself                                                                                                                                                                                                                                                                                                          |                                                                                                                                   |
 | ballrect`.move()`                | move the rectangle, of return a new rectangle moved by the given offset<br/>⁝ symbol: direction, numeric: distance                                                                                                                                                                                                               | [pygame object for storing rectangular coordinates](https://www.pygame.org/docs/ref/rect.html#pygame.Rect.move)                   |
 | screen`.fill()`                  | fill surface with a solid color using the RBG color system<br/>⁝ original opsition will be filled with white by default after the movement, so the background color needs to be constantly refreshed                                                                                                                             | [pygame object for representing images](https://www.pygame.org/docs/ref/surface.html#pygame.Surface.fill)                         |
@@ -34,6 +35,8 @@ provides function and variable used to manipulate different parts of the Python 
 | syntax   | description                                                                                   |
 | -------- | --------------------------------------------------------------------------------------------- |
 | brackets | represent proportion of the tuples<br/>⁝ contents: number of pixels moving (offset) at a time |
+| abs( )   | convert to absolute number                                                                    |
+| int( )   | convert to an integer                                                                         |
 
 <br/>
 <h2 style="color:yellowgreen">Pygame command index</h2>
@@ -45,6 +48,20 @@ provides function and variable used to manipulate different parts of the Python 
 <br/>
 <h2 style="color:yellowgreen">Pygame event index</h2>
 
-| event       | description                                                    |
-| ----------- | -------------------------------------------------------------- |
-| pygame.QUIT | occur when you click the end game button (close window button) |
+| event                                | description                                                                     |
+| ------------------------------------ | ------------------------------------------------------------------------------- |
+| pygame.QUIT                          | occur when you click the end game button (close window button)                  |
+| pygame.KEYDOWN                       | occur when you click and detach the keyboard                                    |
+| pygame.TEXTINPUT<br/>(pygame.locals) | represent keyboard keys<br/>⁝ prefer to the unicode attribute of pygame.KEYDOWN |
+
+<br/>
+<h2 style="color:yellowgreen">Pygame constants from pygame.locals index</h2>
+
+| pygame constant | description | function                                       |
+| --------------- | ----------- | ---------------------------------------------- |
+| K_LEFT          | down arrow  | absolute horizontal speed reduced by 1 pixel   |
+| K_RIGHT         | right arrow | absolute horizontal speed increased by 1 pixel |
+| K_UP            | up arrow    | absolute vertical speed increased by 1 pixel   |
+| K_DOWN          | down arrow  | absolute vertical speed reduced by 1 pixel     |
+
+href.[pygame module to work with the keyboard](https://www.pygame.org/docs/ref/key.html#pygame.key.start_text_input)
