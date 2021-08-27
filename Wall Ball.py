@@ -1,4 +1,4 @@
-# Unit PYG03: Pygame Wall Ball Game --version 4
+# Unit PYG03: Pygame Wall Ball Game --version 5
 import pygame, sys
 
 # Global Function & Vairable
@@ -6,13 +6,17 @@ pygame.init()
 # vInfo = pygame.display.Info() # for FULLSCREEN mode
 size = width, height = 600, 400 # = vInfo.current_w, vInfo.current_h # for FULLSCREEN mode
 screen = pygame.display.set_mode(size, pygame.RESIZABLE)
-pygame.display.set_caption("Wall Ball Game")
-ball = pygame.image.load("Pygame\PYG02_ball.gif")
-speed = [1, 1]
 BLACK = 0, 0, 0
+
+pygame.display.set_caption("Wall Ball Game")
+icon = pygame.image.load("Pygame\PYG03_flower.png")
+pygame.display.set_icon(icon)
+
+ball = pygame.image.load("Pygame\PYG02_ball.gif")
 ballrect = ball.get_rect()
-fps = 300
+speed = [1, 1]
 fclock = pygame.time.Clock()
+fps = 300
 
 # Event
 while True: # ball moves one step per cycle, so control cycle interval to control speed
@@ -36,14 +40,16 @@ while True: # ball moves one step per cycle, so control cycle interval to contro
         elif event.type == pygame.VIDEORESIZE: # for RESIZABLE mode
             size = width, height = event.size[0], event.size[1]
 
-    ballrect = ballrect.move(speed)
+    if pygame.display.get_active():
+        ballrect = ballrect.move(speed)
+
     if ballrect.left < 0 or ballrect.right > width:
         speed[0] = - speed[0]
     if ballrect.top < 0 or ballrect.bottom > height:
         speed[1] = - speed[1]
 
 # Read-only
+    pygame.display.update()
     screen.fill(BLACK)
     screen.blit(ball, ballrect)
-    pygame.display.update()
     fclock.tick(fps)
