@@ -7,10 +7,10 @@ size = width, height = 600, 400
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("Wall Ball Game")
 ball = pygame.image.load("Pygame\PYG02_ball.gif")
-speed = [1, 1] # tuple[number of horizontal axes, number of vertical axes] moving at a sitting
+speed = [1, 1]
 BLACK = 0, 0, 0
 ballrect = ball.get_rect()
-fps = 300 # frames per second
+fps = 300
 fclock = pygame.time.Clock()
 
 # Event
@@ -22,16 +22,14 @@ while True: # ball moves one step per cycle, so control cycle interval to contro
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
                 speed[0] = speed[0] if speed[0] == 0 else (abs(speed[0]) - 1) * int(speed[0] / abs(speed[0]))
-                # if paragraph: cannot subract 0 offset # else paragraph: abs(distance - 1) * (maintain direction)
             elif event.key == pygame.K_RIGHT:
-                speed[0] = speed[0] + 1 if speed[0] > 0 else speed[0] - 1 # all: (distrance + 1) cause addition cannot produce 0 offset
-                # if paragraph: maintain direction # else paragraph: chagne direction
+                speed[0] = speed[0] + 1 if speed[0] > 0 else speed[0] - 1
             elif event.key == pygame.K_UP:
                 speed[1] = speed[1] + 1 if speed[1] > 0 else speed[1] - 1
             elif event.key == pygame.K_DOWN:
                 speed[1] = speed[1] if speed[1] == 0 else (abs(speed[1]) - 1) * int(speed[1] / abs(speed[1]))
 
-    ballrect = ballrect.move(speed) # 'speed' has two tuples, so this function consists of two tuples, speed[0] and speed[1]
+    ballrect = ballrect.move(speed)
     if ballrect.left < 0 or ballrect.right > width:
         speed[0] = - speed[0]
     if ballrect.top < 0 or ballrect.bottom > height:
