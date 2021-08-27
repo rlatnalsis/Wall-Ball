@@ -1,10 +1,11 @@
-# Unit PYG02: Pygame Wall Ball Game --version 3
+# Unit PYG02: Pygame Wall Ball Game --version 4
 import pygame, sys
 
 # Global Function & Vairable
 pygame.init()
-size = width, height = 600, 400
-screen = pygame.display.set_mode(size)
+# vInfo = pygame.display.Info() # for FULLSCREEN mode
+size = width, height = 600, 400 # = vInfo.current_w, vInfo.current_h # for FULLSCREEN mode
+screen = pygame.display.set_mode(size, pygame.RESIZABLE)
 pygame.display.set_caption("Wall Ball Game")
 ball = pygame.image.load("Pygame\PYG02_ball.gif")
 speed = [1, 1]
@@ -28,6 +29,12 @@ while True: # ball moves one step per cycle, so control cycle interval to contro
                 speed[1] = speed[1] + 1 if speed[1] > 0 else speed[1] - 1
             elif event.key == pygame.K_DOWN:
                 speed[1] = speed[1] if speed[1] == 0 else (abs(speed[1]) - 1) * int(speed[1] / abs(speed[1]))
+
+            elif event.key == pygame.K_ESCAPE:
+                sys.exit()
+            
+        elif event.type == pygame.VIDEORESIZE: # for RESIZABLE mode
+            size = width, height = event.size[0], event.size[1]
 
     ballrect = ballrect.move(speed)
     if ballrect.left < 0 or ballrect.right > width:

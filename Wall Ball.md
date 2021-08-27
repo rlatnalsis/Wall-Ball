@@ -14,6 +14,7 @@ provides function and variable used to manipulate different parts of the Python 
 | moudle                           | description                                                                                                                                                                                                                                                                                                                      | href                                                                                                                              |
 | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | pygame`.init()`                  | initialize the Pygame library                                                                                                                                                                                                                                                                                                    | [the top level pygame package](https://www.pygame.org/docs/ref/pygame.html#pygame.init)                                           |
+| `pygame.dispay.Info()`           | create a video display information object                                                                                                                                                                                                                                                                                        | [pygame module to control the display window and screen](https://www.pygame.org/docs/ref/display.html#pygame.display.Info)        |
 | `pygame.display.set_mode()`      | initialize a window or screen for display                                                                                                                                                                                                                                                                                        | [pygame module to control the display window and screen](https://www.pygame.org/docs/ref/display.html#pygame.display.set_mode)    |
 | `pygame.display.set_caption("")` | get the current window caption                                                                                                                                                                                                                                                                                                   | [pygame module to control the display window and screen](https://www.pygame.org/docs/ref/display.html#pygame.display.set_caption) |
 | `pygame.image.load("")`          | load new image in gif format from a file                                                                                                                                                                                                                                                                                         | [pygame module for image transfer](https://www.pygame.org/docs/ref/image.html#pygame.image.load)                                  |
@@ -34,9 +35,22 @@ provides function and variable used to manipulate different parts of the Python 
 
 | syntax   | description                                                                                   |
 | -------- | --------------------------------------------------------------------------------------------- |
+| print( ) | display text                                                                                  |
 | brackets | represent proportion of the tuples<br/>⁝ contents: number of pixels moving (offset) at a time |
 | abs( )   | convert to absolute number                                                                    |
 | int( )   | convert to an integer                                                                         |
+
+<br/>
+<h2 style="color:yellowgreen">Pygame attribute of VidInfo object index</h2>
+
+| attribute | description                                            |
+| --------- | ------------------------------------------------------ |
+| current_h | height of the current video mode or of the destop mode |
+| current_w | width of the current video mode or of the destop mode  |
+
+condition :
+
+> before the display.set_mode
 
 <br/>
 <h2 style="color:yellowgreen">Pygame command index</h2>
@@ -48,11 +62,12 @@ provides function and variable used to manipulate different parts of the Python 
 <br/>
 <h2 style="color:yellowgreen">Pygame event index</h2>
 
-| event                                | description                                                                     |
-| ------------------------------------ | ------------------------------------------------------------------------------- |
-| pygame.QUIT                          | occur when you click the end game button (close window button)                  |
-| pygame.KEYDOWN                       | occur when you click and detach the keyboard                                    |
-| pygame.TEXTINPUT<br/>(pygame.locals) | represent keyboard keys<br/>⁝ prefer to the unicode attribute of pygame.KEYDOWN |
+| event                                | description                                                                                                                            |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| pygame.QUIT                          | occur when you click the end game button (close window button)<br/>⁝ no required in no border mode                                     |
+| pygame.KEYDOWN                       | occur when you click and detach the keyboard                                                                                           |
+| pygame.TEXTINPUT<br/>(pygame.locals) | represent keyboard keys<br/>⁝ prefer to the unicode attribute of pygame.KEYDOWN                                                        |
+| pygame.VIDEORESIZE                   | be sent when the user adjusts the window dimensions<br/>⁝ one of pygame.WINDOWEVENT that is meant to replace all window related events |
 
 <br/>
 <h2 style="color:yellowgreen">Pygame constants from pygame.locals index</h2>
@@ -65,6 +80,17 @@ provides function and variable used to manipulate different parts of the Python 
 | K_DOWN          | down arrow  | absolute vertical speed reduced by 1 pixel     |
 
 href. [pygame module to work with the keyboard](https://www.pygame.org/docs/ref/key.html)
+
+<br/>
+<h2 style="color:yellowgreen">Pygame display flag index</h2>
+
+| display flag      | description                                                                                         |
+| ----------------- | --------------------------------------------------------------------------------------------------- |
+| pygame.FULLSCREEN | create a fullscreen display<br/>⁝ add other exit methods when there is no border                    |
+| pygame.RESIZABLE  | display window should be sizeable                                                                   |
+| pygame.NOFRAME    | display window will have no border or controls<br/>⁝ add other exit methods when there is no border |
+
+href. [pygame module to control the display window and screen](https://www.pygame.org/docs/ref/display.html#pygame.display.set_mode)
 
 <br/>
 <br/>
