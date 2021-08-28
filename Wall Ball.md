@@ -85,8 +85,6 @@ href. [pygame module for interacting with events and queues](https://www.pygame.
 <br/>
 <h2 style="color:yellowgreen">event type</h2>
 
-is set of member attributes based on the type
-
 | type     | event           | situation                                                          | type               | event         | situation                               |
 | -------- | --------------- | ------------------------------------------------------------------ | ------------------ | ------------- | --------------------------------------- |
 | system   | QUIT            | click the end game button (close window button)                    | joystick           | JOYAXISMOTION | joystick axis is changed                |
@@ -100,6 +98,24 @@ is set of member attributes based on the type
 > formula: pygame.event == game`.event`
 
 href. [pygame module for interacting with events and queues](https://www.pygame.org/docs/ref/event.html)
+
+br/>
+
+<h2 style="color:yellowgreen">attribute for event type</h2>
+
+is set of member attributes based on the type
+
+| event                                        | attribute | decription                                                                                  |
+| -------------------------------------------- | --------- | ------------------------------------------------------------------------------------------- |
+| KEYDOWN                                      | unicode   | not recommended. code of the button, platform dependent                                     |
+| KEYDOWN, KEYUP                               | key       | constant name of the button                                                                 |
+| KEYDOWN, KEYUP                               | mod       | combination value of key modifier                                                           |
+| MOUSEMOTION, MOUSEBUTTONDOWN , MOUSEBUTTONUP | pos       | the current corrdinates of the mouse (x y), relative to the upper left corner of the window |
+| MOUSEMOTION                                  | rel       | the relative movement distance of the mouse (X, Y), relative to the last event              |
+| MOUSEMOTION                                  | buttons   | the state of the mouse button (a, b, c), correspoding to the three mouse buttons            |
+| MOUSEBUTTONDOWN, MOUSEBUTTONUP               | button    | the value is 0/1/2, correspoding to three keys respectively                                 |
+
+> formula: event`.attirbute`
 
 <br/>
 <h2 style="color:yellowgreen">attribute for pygame.event queue</h2>

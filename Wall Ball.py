@@ -1,4 +1,4 @@
-# Unit PYG04: Pygame Wall Ball Game_keyboard event print --version 1
+# Unit PYG04: Pygame Wall Ball Game_keyboard and mouse event print
 import pygame, sys
 
 pygame.init()
