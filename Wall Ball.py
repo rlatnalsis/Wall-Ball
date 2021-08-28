@@ -1,7 +1,6 @@
-# Unit PYG03: Pygame Wall Ball Game --version 5
+# Unit PYG04: Pygame Wall Ball Game --version 6
 import pygame, sys
 
-# Global Function & Vairable
 pygame.init()
 # vInfo = pygame.display.Info() # for FULLSCREEN mode
 size = width, height = 600, 400 # = vInfo.current_w, vInfo.current_h # for FULLSCREEN mode
@@ -9,16 +8,17 @@ screen = pygame.display.set_mode(size, pygame.RESIZABLE)
 BLACK = 0, 0, 0
 
 pygame.display.set_caption("Wall Ball Game")
-icon = pygame.image.load("Pygame\PYG03_flower.png")
+icon = pygame.image.load("PYG03_flower.png")
 pygame.display.set_icon(icon)
 
-ball = pygame.image.load("Pygame\PYG02_ball.gif")
+ball = pygame.image.load("PYG02_ball.gif")
 ballrect = ball.get_rect()
 speed = [1, 1]
 fclock = pygame.time.Clock()
 fps = 300
 
-# Event
+still = False
+
 while True: # ball moves one step per cycle, so control cycle interval to control speed
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -40,7 +40,18 @@ while True: # ball moves one step per cycle, so control cycle interval to contro
         elif event.type == pygame.VIDEORESIZE: # for RESIZABLE mode
             size = width, height = event.size[0], event.size[1]
 
-    if pygame.display.get_active():
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                still = True
+        elif event.type == pygame.MOUSEBUTTONUP:
+            still = False
+            if event.button == 1:
+                ballrect = ballrect.move(event.pos[0] - ballrect.left, event.pos[1] - ballrect.top)
+        elif event.type == pygame.MOUSEMOTION:
+            if event.buttons[0] == 1:
+                ballrect = ballrect.move(event.pos[0] - ballrect.left, event.pos[1] - ballrect.top)
+
+    if pygame.display.get_active() and not still:
         ballrect = ballrect.move(speed)
 
     if ballrect.left < 0 or ballrect.right > width:
@@ -48,7 +59,6 @@ while True: # ball moves one step per cycle, so control cycle interval to contro
     if ballrect.top < 0 or ballrect.bottom > height:
         speed[1] = - speed[1]
 
-# Read-only
     pygame.display.update()
     screen.fill(BLACK)
     screen.blit(ball, ballrect)
