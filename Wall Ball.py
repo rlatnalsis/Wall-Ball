@@ -16,7 +16,6 @@ ballrect = ball.get_rect()
 speed = [1, 1]
 fclock = pygame.time.Clock()
 fps = 300
-
 still = False
 
 while True: # ball moves one step per cycle, so control cycle interval to control speed
