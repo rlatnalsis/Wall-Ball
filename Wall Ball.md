@@ -174,7 +174,7 @@ is a bitmask of all the modifier keys that were in a pressed state when the even
 <br/>
 <h2 style="color:yellow">explain for formula</h2>
 
-| formula                                                                                            | explain                                                                                                                                  |
-| -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| speed[0] = speed[0] if speed[0] == 0<br/>else (abs(speed[0]) - 1) \* int(speed[0] / abs(speed[0])) | remain the static from horizon if horizontal distance is 0<br/>else (horizontal distance at a time - 1) \* (remain horizontal direction) |
-| speed[0] = speed[0] + 1 if speed[0] > 0<br/>else speed[0] - 1                                      | (horizontal distance at a time + 1) if horizontal distance is more than 0<br/>else (horizontal distance at a time - 1)                   |
+| formula                                                                                            | explain                                                                                                    |
+| -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| speed[0] = speed[0] if speed[0] == 0<br/>else (abs(speed[0]) - 1) \* int(speed[0] / abs(speed[0])) | remain horizontal offset if h.o is 0<br/>else ,when h.o is more/less than 0, h.o minus 1 and remain symbol |
+| speed[0] = speed[0] + 1 if speed[0] > 0<br/>else speed[0] - 1                                      | h.o plus 1 if h.o is more than 0<br/>else, when h.o is 0 or less than 0, h.o minus 1                       |

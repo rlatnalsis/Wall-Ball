@@ -38,6 +38,7 @@ while True: # ball moves one step per cycle, so control cycle interval to contro
             
         elif event.type == pygame.VIDEORESIZE: # for RESIZABLE mode
             size = width, height = event.size[0], event.size[1]
+            screen = pygame.display.set_mode(size, pygame.RESIZABLE)
 
         elif event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
@@ -55,8 +56,12 @@ while True: # ball moves one step per cycle, so control cycle interval to contro
 
     if ballrect.left < 0 or ballrect.right > width:
         speed[0] = - speed[0]
+        if ballrect.right > width and ballrect.right + speed[0] > ballrect.right:
+            speed[0] = - speed[0]
     if ballrect.top < 0 or ballrect.bottom > height:
         speed[1] = - speed[1]
+        if ballrect.bottom > height and ballrect.bottom + speed[1] > ballrect.bottom:
+            speed[1] = - speed[1]
 
     pygame.display.update()
     screen.fill(BLACK)
