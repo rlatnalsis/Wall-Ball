@@ -18,9 +18,6 @@ provides function and variable used to manipulate different parts of the Python 
 | `pygame.display.set_mode()`      | initialize a window or screen for display                                                                                                                                                                                                                                                                                 | [pygame module to control the display window and screen](https://www.pygame.org/docs/ref/display.html#pygame.display.set_mode)    |
 | `pygame.Color()`                 | color class represents an RGBA color value ranging from 0 to 255 ⁝ allow basic arithmetic operations                                                                                                                                                                                                                      | [pygame object for color representations](https://www.pygame.org/docs/ref/color.html)                                             |
 | `pygame.display.set_caption("")` | get the current window caption                                                                                                                                                                                                                                                                                            | [pygame module to control the display window and screen](https://www.pygame.org/docs/ref/display.html#pygame.display.set_caption) |
-| `pygame.image.("")`              | load new BMP image from a file                                                                                                                                                                                                                                                                                            | [pygame module for image transfer](https://www.pygame.org/docs/ref/image.html#pygame.image.load_basic)                            |
-| `pygame.image.load("")`          | load new image (in gif format) from a file                                                                                                                                                                                                                                                                                | [pygame module for image transfer](https://www.pygame.org/docs/ref/image.html#pygame.image.load)                                  |
-| `pygame.image.save("")`          | save an image to file                                                                                                                                                                                                                                                                                                     | [pygame module for image transfer](https://www.pygame.org/docs/ref/image.html#pygame.image.save)                                  |
 | `pygame.display.set_icon`        | change the system image for the display window                                                                                                                                                                                                                                                                            | [pygame module to control the display window and screen](https://www.pygame.org/docs/ref/display.html#pygame.display.set_icon)    |
 | ball`.get_rect()`                | get the rectangular area (with the same width and height as the image) of the surface<br/>⁝ pygame use the internally defined surface object to represent all loaded image<br/>⁝ the display always starts at (0, 0), is the top left of the screen. both axes increase positively towards the bottom right of the screen | [pygame object for representing images](https://www.pygame.org/docs/ref/surface.html#pygame.Surface.get_rect)                     |
 | `pygame.time.Clock()`            | create an object to help track time                                                                                                                                                                                                                                                                                       | [pygame module for monitoring time](https://www.pygame.org/docs/ref/time.html#pygame.time.Clock)                                  |
@@ -59,15 +56,27 @@ provides function and variable used to manipulate different parts of the Python 
 <br/>
 <h2 style="color:yellowgreen">display flag</h2>
 
-| display flag | description                 | display flag | description                                        | display flag | description                      |
-| ------------ | --------------------------- | ------------ | -------------------------------------------------- | ------------ | -------------------------------- |
-| FULLSCREEN   | create a fullscreen display | NOFRAME      | create a display window without border or controls | RESIZABLE    | create a sizeable display window |
+| display flag | description                                        | display flag | description                      |
+| ------------ | -------------------------------------------------- | ------------ | -------------------------------- |
+| FULLSCREEN   | create a fullscreen display                        | RESIZABLE    | create a sizeable display window |
+| NOFRAME      | create a display window without border or controls |
 
 > add other exit methods when there is no border
 
 > formula: pygame`.display flag`
 
 href. [pygame module to control the display window and screen](https://www.pygame.org/docs/ref/display.html#pygame.display.set_mode)
+
+<br/>
+<h2 style="color:yellowgreen">image function</h2>
+
+| method    | description                                | href                                                                                                   |
+| --------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| (" ")     | load new BMP image from a file             | [pygame module for image transfer](https://www.pygame.org/docs/ref/image.html#pygame.image.load_basic) |
+| load(" ") | load new image (in gif format) from a file | [pygame module for image transfer](https://www.pygame.org/docs/ref/image.html#pygame.image.load)       |
+| save(" ") | save an image to file                      | [pygame module for image transfer](https://www.pygame.org/docs/ref/image.html#pygame.image.save)       |
+
+> format: pygame.image`.method`
 
 <br/>
 <h2 style="color:yellowgreen">color object</h2>
@@ -85,12 +94,16 @@ href. [pygame object for color representations](https://www.pygame.org/docs/ref/
 <br/>
 <h2 style="color:yellowgreen">event processing method</h2>
 
-| type                 | command        | description                                                        | type                 | command        | description                                                            |
-| -------------------- | -------------- | ------------------------------------------------------------------ | -------------------- | -------------- | ---------------------------------------------------------------------- |
-| handling events      | get( )         | get event from the queue ⁝ the event is deleted after execution    | operatingevent queue | set_blocked( ) | control which event types are not allowed to appear on the event queue |
-| handling events      | poll( )        | get a single event from the queue                                  | operatingevent queue | get_blocked( ) | test if a event type is prohibited from the queue                      |
-| handling events      | clear( )       | remove all events from the queue                                   | generating event     | post( )        | place a new event on the queue                                         |
-| operatingevent queue | set_allowed( ) | control which event types are allowed to appear on the event queue | generating event     | Event( )       | create a new event object                                              |
+| type                 | command        | description                                                            |
+| -------------------- | -------------- | ---------------------------------------------------------------------- |
+| handling events      | get( )         | get event from the queue ⁝ the event is deleted after execution        |
+| handling events      | poll( )        | get a single event from the queue                                      |
+| handling events      | clear( )       | remove all events from the queue                                       |
+| operatingevent queue | set_allowed( ) | control which event types are allowed to appear on the event queue     |
+| operatingevent queue | set_blocked( ) | control which event types are not allowed to appear on the event queue |
+| operatingevent queue | get_blocked( ) | test if a event type is prohibited from the queue                      |
+| generating event     | post( )        | place a new event on the queue                                         |
+| generating event     | Event( )       | create a new event object                                              |
 
 > formula: pygame.event`.method`
 
@@ -115,8 +128,7 @@ is pygame class object for representing events
 
 href. [pygame module for interacting with events and queues](https://www.pygame.org/docs/ref/event.html)
 
-br/>
-
+<br/>
 <h2 style="color:yellowgreen">attribute for event type</h2>
 
 is set of member attributes based on the type
@@ -138,12 +150,12 @@ is set of member attributes based on the type
 
 is represent keyboard keys that refer to the unicode attribute of pygame.KEYDOWN
 
-| constant name | description | feature                                        | constant name | description | feature                                      |
-| ------------- | ----------- | ---------------------------------------------- | ------------- | ----------- | -------------------------------------------- |
-| K_LEFT        | left arrow  | absolute horizontal speed reduced by 1 pixel   | K_UP          | up arrow    | absolute vertical speed increased by 1 pixel |
-| K_RIGHT       | right arrow | absolute horizontal speed increased by 1 pixel | K_DOWN        | down arrow  | absolute vertical speed reduced by 1 pixel   |
+| constant | description | feature                                        | constant | description | feature                                      |
+| -------- | ----------- | ---------------------------------------------- | -------- | ----------- | -------------------------------------------- |
+| K_LEFT   | left arrow  | absolute horizontal speed reduced by 1 pixel   | K_UP     | up arrow    | absolute vertical speed increased by 1 pixel |
+| K_RIGHT  | right arrow | absolute horizontal speed increased by 1 pixel | K_DOWN   | down arrow  | absolute vertical speed reduced by 1 pixel   |
 
-> formula: `event.key` == pygame`.contant`
+> formula: `event.key` == pygame`.contant name`
 
 href. [pygame module to work with the keyboard](https://www.pygame.org/docs/ref/key.html)
 
@@ -152,14 +164,18 @@ href. [pygame module to work with the keyboard](https://www.pygame.org/docs/ref/
 
 is a bitmask of all the modifier keys that were in a pressed state when the event occurred, and contains the modifier information of the pygame.KEYDOWN and pygame.KEYUP events
 
-| constant name | description                    | constant name | description                         | constant name | description                 | constant name | description                   |
-| ------------- | ------------------------------ | ------------- | ----------------------------------- | ------------- | --------------------------- | ------------- | ----------------------------- |
-| KMOD_NONE     | no modifier key pressed        | KMOD_LCTRL    | left control                        | KMOD_RALT     | right alt                   | KMOD_META     | left meta, right meta or both |
-| KMOD_LSHIFT   | left shift                     | KMOD_RCTRL    | right control                       | KMOD_ALT      | left alt, right alt or both | KMOD_CAPS     | caps lock                     |
-| KMOD_RSHIFT   | right shift                    | KMOD_CTRL     | left control, right control or both | KMOD_LMETA    | left meta                   | KMOD_NUM      | num lock                      |
-| KMOD_SHIFT    | left shif, right shift or both | KMOD_LALT     | left alt                            | KMOD_RMETA    | right meta                  | KMOD_MODE     | AltGr                         |
+| constant name | description                         | constant name | description                   |
+| ------------- | ----------------------------------- | ------------- | ----------------------------- |
+| KMOD_NONE     | no modifier key pressed             | KMOD_RALT     | right alt                     |
+| KMOD_LSHIFT   | left shift                          | KMOD_ALT      | left alt, right alt or both   |
+| KMOD_RSHIFT   | right shift                         | KMOD_LMETA    | left meta                     |
+| KMOD_SHIFT    | left shif, right shift or both      | KMOD_RMETA    | right meta                    |
+| KMOD_LCTRL    | left control                        | KMOD_META     | left meta, right meta or both |
+| KMOD_RCTRL    | right control                       | KMOD_CAPS     | caps lock                     |
+| KMOD_CTRL     | left control, right control or both | KMOD_NUM      | num lock                      |
+| KMOD_LALT     | left alt                            | KMOD_MODE     | AltGr                         |
 
-> event`.mod` = constant | constant ...
+ > formula: event`.mod` = constant | constant ... |
 
 <br/>
 <br/>
@@ -176,8 +192,8 @@ is a bitmask of all the modifier keys that were in a pressed state when the even
 
 is description of command directly above
 
-| formula                                                                                            | explain                                                                                                                                                                                                              | href                                                          |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| speed[0] = speed[0] if speed[0] == 0<br/>else (abs(speed[0]) - 1) \* int(speed[0] / abs(speed[0])) | remain horizontal offset if h.o is 0<br/>else ,when h.o is more/less than 0, h.o minus 1 and remain symbol                                                                                                           |
-| speed[0] = speed[0] + 1 if speed[0] > 0<br/>else speed[0] - 1                                      | h.o plus 1 if h.o is more than 0<br/>else, when h.o is 0 or less than 0, h.o minus 1                                                                                                                                 |
-| event.pos[0] - ballrect.left<br/>, event.pos[1] - ballrect.top                                     | (x-coordinate of the mouse) - (middle-left-coordinate of the current ballrect ⁝ only have x-coordinate)<br/>, (y-coordinate of the mouse) - (middle-top-coordinate of the current ballrect ⁝ only have y-coordinate) | [screen size and coordinates](https://www.jbmpa.com/pygame/4) |
+| formula                                                                                            | explain                                                                                                                                                                                                                                                                                |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| speed[0] = speed[0] if speed[0] == 0<br/>else (abs(speed[0]) - 1) \* int(speed[0] / abs(speed[0])) | remain horizontal offset if h.o is 0<br/>else ,when h.o is more/less than 0, h.o minus 1 and remain symbol                                                                                                                                                                             |
+| speed[0] = speed[0] + 1 if speed[0] > 0<br/>else speed[0] - 1                                      | h.o plus 1 if h.o is more than 0<br/>else, when h.o is 0 or less than 0, h.o minus 1                                                                                                                                                                                                   |
+| event.pos[0] - ballrect.left<br/>, event.pos[1] - ballrect.top                                     | (x-coordinate of the mouse) - (middle-left-coordinate of the current ballrect ⁝ only have x-coordinate)<br/>, (y-coordinate of the mouse) - (middle-top-coordinate of the current ballrect ⁝ only have y-coordinate)<br/>[screen size and coordinates](https://www.jbmpa.com/pygame/4) |
