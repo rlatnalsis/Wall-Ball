@@ -2,8 +2,7 @@
 import pygame, sys
 
 pygame.init()
-# vInfo = pygame.display.Info() # for FULLSCREEN mode
-size = width, height = 600, 400 # = vInfo.current_w, vInfo.current_h # for FULLSCREEN mode
+size = width, height = 600, 400
 screen = pygame.display.set_mode(size, pygame.RESIZABLE)
 BLACK = 0, 0, 0
 
@@ -18,7 +17,7 @@ fclock = pygame.time.Clock()
 fps = 300
 still = False
 
-while True: # ball moves one step per cycle, so control cycle interval to control speed
+while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
@@ -35,8 +34,8 @@ while True: # ball moves one step per cycle, so control cycle interval to contro
 
             elif event.key == pygame.K_ESCAPE:
                 sys.exit()
-            
-        elif event.type == pygame.VIDEORESIZE: # for RESIZABLE mode
+
+        elif event.type == pygame.VIDEORESIZE:
             size = width, height = event.size[0], event.size[1]
             screen = pygame.display.set_mode(size, pygame.RESIZABLE)
 
