@@ -1,16 +1,20 @@
-# Unit PYG04: Pygame Wall Ball Game --version 6
+# Unit PYG05: Pygame Wall Ball Game --version 7
 import pygame, sys
+
+def RGBChannel(a):
+    return 0 if a < 0 else (255 if a > 255 else int(a))
 
 pygame.init()
 size = width, height = 600, 400
 screen = pygame.display.set_mode(size, pygame.RESIZABLE)
+bgcolor = pygame.Color("black")
 BLACK = 0, 0, 0
 
 pygame.display.set_caption("Wall Ball Game")
-icon = pygame.image.load("PYG03_flower.png")
+icon = pygame.image.load("Wall-Ball\PYG03_flower.png")
 pygame.display.set_icon(icon)
 
-ball = pygame.image.load("PYG02_ball.gif")
+ball = pygame.image.load("Wall-Ball\PYG02_ball.gif")
 ballrect = ball.get_rect()
 speed = [1, 1]
 fclock = pygame.time.Clock()
@@ -62,7 +66,11 @@ while True:
         if ballrect.bottom > height and ballrect.bottom + speed[1] > ballrect.bottom:
             speed[1] = - speed[1]
 
+    bgcolor.r = RGBChannel(ballrect.left * 255 / width)
+    bgcolor.g = RGBChannel(ballrect.top * 255 / height)
+    bgcolor.b = RGBChannel(min(speed[0], speed[1]) * 255 / max(speed[0], speed[1], 1))
+
     pygame.display.update()
-    screen.fill(BLACK)
+    screen.fill(bgcolor)
     screen.blit(ball, ballrect)
     fclock.tick(fps)

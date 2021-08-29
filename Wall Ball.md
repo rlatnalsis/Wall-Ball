@@ -16,8 +16,11 @@ provides function and variable used to manipulate different parts of the Python 
 | pygame`.init()`                  | initialize the Pygame library                                                                                                                                                                                                                                                                                             | [the top level pygame package](https://www.pygame.org/docs/ref/pygame.html#pygame.init)                                           |
 | `pygame.dispay.Info()`           | create a video display information object ⁝ in FULLSCREEN mode                                                                                                                                                                                                                                                            | [pygame module to control the display window and screen](https://www.pygame.org/docs/ref/display.html#pygame.display.Info)        |
 | `pygame.display.set_mode()`      | initialize a window or screen for display                                                                                                                                                                                                                                                                                 | [pygame module to control the display window and screen](https://www.pygame.org/docs/ref/display.html#pygame.display.set_mode)    |
+| `pygame.Color()`                 | color class represents an RGBA color value ranging from 0 to 255 ⁝ allow basic arithmetic operations                                                                                                                                                                                                                      | [pygame object for color representations](https://www.pygame.org/docs/ref/color.html)                                             |
 | `pygame.display.set_caption("")` | get the current window caption                                                                                                                                                                                                                                                                                            | [pygame module to control the display window and screen](https://www.pygame.org/docs/ref/display.html#pygame.display.set_caption) |
+| `pygame.image.("")`              | load new BMP image from a file                                                                                                                                                                                                                                                                                            | [pygame module for image transfer](https://www.pygame.org/docs/ref/image.html#pygame.image.load_basic)                            |
 | `pygame.image.load("")`          | load new image (in gif format) from a file                                                                                                                                                                                                                                                                                | [pygame module for image transfer](https://www.pygame.org/docs/ref/image.html#pygame.image.load)                                  |
+| `pygame.image.save("")`          | save an image to file                                                                                                                                                                                                                                                                                                     | [pygame module for image transfer](https://www.pygame.org/docs/ref/image.html#pygame.image.save)                                  |
 | `pygame.display.set_icon`        | change the system image for the display window                                                                                                                                                                                                                                                                            | [pygame module to control the display window and screen](https://www.pygame.org/docs/ref/display.html#pygame.display.set_icon)    |
 | ball`.get_rect()`                | get the rectangular area (with the same width and height as the image) of the surface<br/>⁝ pygame use the internally defined surface object to represent all loaded image<br/>⁝ the display always starts at (0, 0), is the top left of the screen. both axes increase positively towards the bottom right of the screen | [pygame object for representing images](https://www.pygame.org/docs/ref/surface.html#pygame.Surface.get_rect)                     |
 | `pygame.time.Clock()`            | create an object to help track time                                                                                                                                                                                                                                                                                       | [pygame module for monitoring time](https://www.pygame.org/docs/ref/time.html#pygame.time.Clock)                                  |
@@ -36,12 +39,13 @@ provides function and variable used to manipulate different parts of the Python 
 <br/>
 <h2 style="color:yellowgreen">Pygame syntax</h2>
 
-| syntax   | description                                                                                   |
-| -------- | --------------------------------------------------------------------------------------------- |
-| print( ) | display text                                                                                  |
-| brackets | represent proportion of the tuples<br/>⁝ contents: number of pixels moving (offset) at a time |
-| abs( )   | convert to absolute number                                                                    |
-| int( )   | convert to an integer                                                                         |
+| syntax   | description                                |
+| -------- | ------------------------------------------ |
+| def      | define something                           |
+| print( ) | display text                               |
+| brackets | number of pixels (offset) moving at a time |
+| abs( )   | convert to absolute number                 |
+| int( )   | convert to an integer                      |
 
 <br/>
 <h2 style="color:yellowgreen">attribute of Video display Info</h2>
@@ -64,6 +68,19 @@ provides function and variable used to manipulate different parts of the Python 
 > formula: pygame`.display flag`
 
 href. [pygame module to control the display window and screen](https://www.pygame.org/docs/ref/display.html#pygame.display.set_mode)
+
+<br/>
+<h2 style="color:yellowgreen">color object</h2>
+
+| object    | description                                     | object | description                             |
+| --------- | ----------------------------------------------- | ------ | --------------------------------------- |
+| r         | get or set the red value of the color           | b      | get or set the blue value of the color  |
+| g         | get or set the green value of the color         | a      | get or set the alpha value of the color |
+| normalize | Returns the normalized RGBA values of the color |
+
+> formula: pygmae.Color`.object`
+
+href. [pygame object for color representations](https://www.pygame.org/docs/ref/color.html#pygame.Color.r)
 
 <br/>
 <h2 style="color:yellowgreen">event processing method</h2>
