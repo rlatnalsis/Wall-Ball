@@ -1,4 +1,4 @@
-# Unit PYG05: Pygame Wall Ball Game --version 8
+# Unit PYG05: Pygame Wall Ball Game --version 9
 import pygame, sys
 import pygame.freetype
 
@@ -11,7 +11,7 @@ speed = [1, 1]
 GOLD = 255, 215, 0
 BLACK = 0, 0, 0
 f1 = pygame.freetype.Font("C:\Windows\Fonts\Gabriola.ttf", 36)
-f1rect = f1.render_to(screen, pos, "draw font", fgcolor=GOLD, size=50)
+f1surf, f1rect = f1.render("draw font", fgcolor=GOLD, size=50)
 fps = 300
 fclock = pygame.time.Clock()
 
@@ -27,6 +27,7 @@ while True:
     pos[1] = pos[1] + speed[1]
     
     screen.fill(BLACK)
-    f1rect = f1.render_to(screen, pos, "draw font", fgcolor=GOLD, size=50)
+    f1surf, f1rect = f1.render("draw font", fgcolor=GOLD, size=50)
+    screen.blit(f1surf, (pos[0], pos[1]))
     pygame.display.update()
     fclock.tick(fps)
