@@ -1,26 +1,18 @@
-# Unit PYG04: Pygame Wall Ball Game_event processing
+# Unit PYG05: Pygame Wall Ball Game_draw shape
 import pygame, sys
 
 pygame.init()
 screen = pygame.display.set_mode((600, 400))
 pygame.display.set_caption("Wall Ball Game")
-fclock = pygame.time.Clock()
-fps = 1
-num = 1
+GOLD = 255, 215, 0
+RED = pygame.Color('red')
+
+r1rect = pygame.draw.rect(screen, GOLD, (100, 100, 200, 100), 5)
+r2rect = pygame.draw.rect(screen, RED, (210, 210, 200, 100), 0)
 
 while True:
-    uevent = pygame.event.Event(pygame.KEYDOWN, {"unicode": 123, "key": pygame.K_SPACE, "mod": pygame.KMOD_ALT})
-    pygame.event.post(uevent)
-    num = num + 1
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
 
-        elif event.type == pygame.KEYDOWN:
-            if event.unicode == "":
-                print("[KEYDOWN {}]:".format(num), "#", event.key, event.mod)
-            else:
-                print("[KEYDOWN {}]:".format(num), event.unicode, event.key, event.mod)
-
     pygame.display.update()
-    fclock.tick(fps)
