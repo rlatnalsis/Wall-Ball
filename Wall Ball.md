@@ -79,6 +79,13 @@ href. [pygame module to control the display window and screen](https://www.pygam
 > format: pygame.image`.method`
 
 <br/>
+<h2 style="color:yellowgreen">surface vs. rectangle</h2>
+
+| class   | description                           | class | description                                       |
+| ------- | ------------------------------------- | ----- | ------------------------------------------------- |
+| Surface | pygame object for representing images | Rect  | pygame object for storing rectangular coordinates |
+
+<br/>
 <h2 style="color:yellowgreen">rect class</h2>
 
 | method     | description                                 | method         | description                                      |
