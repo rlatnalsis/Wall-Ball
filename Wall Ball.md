@@ -105,9 +105,9 @@ href. [pygame object for storing rectangular coordinates](https://www.pygame.org
 
 | method  | description            | method  | description                                                 |
 | ------- | ---------------------- | ------- | ----------------------------------------------------------- |
-| rect    | draw a rectangle       | line    | draw a straight line                                        |
+| rect    | draw a rectangle       | line    | draw a straight line ⁝ normal (aliased) line                                        |
 | polygon | draw a polygon         | lines   | draw multiple contiguous straight line segments             |
-| circle  | draw a circle          | aaline  | draw a straight antialiased line                            |
+| circle  | draw a circle          | aaline  | draw a straight anti-aliased line                            |
 | ellipse | draw an ellipse        | aalines | draw multiple contiguous straight antialiased line segments |
 | arc     | draw an elliptical arc |
 
