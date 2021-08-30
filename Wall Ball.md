@@ -105,9 +105,9 @@ href. [pygame object for storing rectangular coordinates](https://www.pygame.org
 
 | method  | description            | method  | description                                                 |
 | ------- | ---------------------- | ------- | ----------------------------------------------------------- |
-| rect    | draw a rectangle       | line    | draw a straight line ⁝ normal (aliased) line                                        |
+| rect    | draw a rectangle       | line    | draw a straight line ⁝ normal (aliased) line                |
 | polygon | draw a polygon         | lines   | draw multiple contiguous straight line segments             |
-| circle  | draw a circle          | aaline  | draw a straight anti-aliased line                            |
+| circle  | draw a circle          | aaline  | draw a straight anti-aliased line                           |
 | ellipse | draw an ellipse        | aalines | draw multiple contiguous straight antialiased line segments |
 | arc     | draw an elliptical arc |
 
@@ -127,6 +127,30 @@ href. [pygame module for drawing shapes](https://www.pygame.org/docs/ref/draw.ht
 > formula: pygmae.Color`.object`
 
 href. [pygame object for color representations](https://www.pygame.org/docs/ref/color.html#pygame.Color.r)
+
+<br/>
+<h2 style="color:yellowgreen">font class</h2>
+
+| class                    | description                                           |
+| ------------------------ | ----------------------------------------------------- |
+| pygame`.freetype.Font()` | create a new font instance from a supported font file |
+
+> location: C:\Windows\Fonts\ `font path` \
+> extension: _`.ttf`, _`.ttc`
+
+href. [enhanced pygame module for loading and rendering computer fonts](https://www.pygame.org/docs/ref/freetype.html#pygame.freetype.Font) ⁝ refer to the parameters
+
+<br/>
+<h2 style="color:yellowgreen">drawing text</h2>
+
+has to write `import pygame.freetype`.\
+assigning this parameter will override the setting value in font
+
+| method | description                       | method    | description                          |
+| ------ | --------------------------------- | --------- | ------------------------------------ |
+| render | return rendered text as a surface | render_to | render text onto an existing surface |
+
+> formula: pygame.freetype.Font`.method`
 
 <br/>
 <h2 style="color:yellowgreen">event processing method</h2>
